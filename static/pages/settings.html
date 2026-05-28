@@ -1,0 +1,46 @@
+<div class="card">
+    <h2>系统设置</h2>
+    
+    <div class="form-group">
+        <label>话单记录开关</label>
+        <select id="callRecordEnabled">
+            <option value="1">开启</option>
+            <option value="0">关闭</option>
+        </select>
+        <p style="color: #999; font-size: 12px; margin-top: 6px;">关闭后将停止记录呼叫记录，降低系统负载</p>
+    </div>
+    
+    <div class="form-group">
+        <label>话单保留天数</label>
+        <input type="number" id="callRecordRetentionDays" value="7" min="1" max="365">
+        <p style="color: #999; font-size: 12px; margin-top: 6px;">超过此天数的话单将自动清理</p>
+    </div>
+    
+    <button class="btn btn-primary" onclick="saveSettings()">保存设置</button>
+</div>
+
+<div class="card">
+    <h2>系统信息</h2>
+    <table>
+        <tr>
+            <td style="width: 150px; font-weight: 500;">系统版本</td>
+            <td>OpsLB V2.0</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">OpenSIPS 版本</td>
+            <td>3.5.9</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">Go 版本</td>
+            <td>1.22</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">数据库</td>
+            <td>MySQL 8.0</td>
+        </tr>
+        <tr>
+            <td style="font-weight: 500;">缓存</td>
+            <td>Redis 8.0</td>
+        </tr>
+    </table>
+</div>

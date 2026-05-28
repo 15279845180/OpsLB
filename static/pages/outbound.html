@@ -1,0 +1,84 @@
+<div class="card">
+    <h2>
+        <span>出局网关管理</span>
+        <button class="btn btn-primary" onclick="openOutboundModal()">+ 添加网关</button>
+    </h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>IP:端口</th>
+                <th>优先级</th>
+                <th>权重</th>
+                <th>并发/最大</th>
+                <th>CPS</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="outboundTable"></tbody>
+    </table>
+</div>
+
+<!-- 添加/编辑模态框 -->
+<div id="outboundModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="outboundModalTitle">添加出局网关</h3>
+            <span class="close" onclick="closeOutboundModal()">&times;</span>
+        </div>
+        <form id="outboundForm">
+            <input type="hidden" id="outboundId">
+            <div class="form-group">
+                <label>名称 *</label>
+                <input type="text" id="outboundName" required placeholder="例如: 网关A">
+            </div>
+            <div class="form-group">
+                <label>IP地址 *</label>
+                <input type="text" id="outboundIP" required placeholder="例如: 192.168.1.100">
+            </div>
+            <div class="form-group">
+                <label>端口</label>
+                <input type="number" id="outboundPort" value="5060">
+            </div>
+            <div class="form-group">
+                <label>协议</label>
+                <select id="outboundProtocol">
+                    <option value="udp">UDP</option>
+                    <option value="tcp">TCP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>优先级 (数字越小优先级越高)</label>
+                <input type="number" id="outboundPriority" value="1" min="1">
+            </div>
+            <div class="form-group">
+                <label>权重 (1-100)</label>
+                <input type="number" id="outboundWeight" value="1" min="1" max="100">
+            </div>
+            <div class="form-group">
+                <label>最大并发数</label>
+                <input type="number" id="outboundMaxConcurrent" value="100" min="1">
+            </div>
+            <div class="form-group">
+                <label>最大CPS (0表示不限制)</label>
+                <input type="number" id="outboundMaxCPS" value="0" min="0">
+            </div>
+            <div class="form-group">
+                <label>状态</label>
+                <select id="outboundStatus">
+                    <option value="1">启用</option>
+                    <option value="0">禁用</option>
+                    <option value="2">暂停</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>描述</label>
+                <input type="text" id="outboundDesc" placeholder="可选描述">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">保存</button>
+        </form>
+    </div>
+</div>

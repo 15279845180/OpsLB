@@ -1,0 +1,72 @@
+<div class="stats-grid">
+    <div class="stat-card">
+        <h3>今日总呼叫数</h3>
+        <div class="value" id="statTotalCalls">-</div>
+        <div class="sub-text">今日所有呼叫</div>
+    </div>
+    <div class="stat-card">
+        <h3>今日接通率</h3>
+        <div class="value" id="statAnswerRate">-</div>
+        <div class="sub-text">成功接通比例</div>
+    </div>
+    <div class="stat-card">
+        <h3>当前入局并发</h3>
+        <div class="value" id="statInboundCalls">-</div>
+        <div class="sub-text">正在处理的入局呼叫</div>
+    </div>
+    <div class="stat-card">
+        <h3>当前出局并发</h3>
+        <div class="value" id="statOutboundCalls">-</div>
+        <div class="sub-text">正在处理的出局呼叫</div>
+    </div>
+</div>
+
+<div class="card">
+    <h2>网关并发状态</h2>
+    <div style="margin-bottom: 20px;">
+        <h3 style="margin-bottom: 12px; color: #666;">入局网关</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>网关名称</th>
+                    <th>IP列表</th>
+                    <th>当前并发</th>
+                    <th>最大并发</th>
+                    <th>使用率</th>
+                </tr>
+            </thead>
+            <tbody id="inboundGatewayTable"></tbody>
+        </table>
+    </div>
+    
+    <div>
+        <h3 style="margin-bottom: 12px; color: #666;">出局网关</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>网关名称</th>
+                    <th>IP:端口</th>
+                    <th>当前并发</th>
+                    <th>最大并发</th>
+                    <th>使用率</th>
+                </tr>
+            </thead>
+            <tbody id="outboundGatewayTable"></tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <h2>失败呼叫 TOP 5</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>出局网关</th>
+                <th>状态码</th>
+                <th>状态描述</th>
+                <th>失败次数</th>
+            </tr>
+        </thead>
+        <tbody id="failedCallsTable"></tbody>
+    </table>
+</div>

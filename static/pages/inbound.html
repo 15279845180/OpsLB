@@ -1,0 +1,59 @@
+<div class="card">
+    <h2>
+        <span>入局网关管理</span>
+        <button class="btn btn-primary" onclick="openInboundModal()">+ 添加网关</button>
+    </h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>网关名称</th>
+                <th>IP列表</th>
+                <th>当前并发</th>
+                <th>最大并发</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="inboundTable"></tbody>
+    </table>
+</div>
+
+<!-- 添加/编辑模态框 -->
+<div id="inboundModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="inboundModalTitle">添加入局网关</h3>
+            <span class="close" onclick="closeInboundModal()">&times;</span>
+        </div>
+        <form id="inboundForm">
+            <input type="hidden" id="inboundId">
+            <div class="form-group">
+                <label>网关名称 *</label>
+                <input type="text" id="inboundName" required placeholder="例如: 客户A">
+            </div>
+            <div class="form-group">
+                <label>IP列表 *（每行一个IP）</label>
+                <textarea id="inboundIPs" required placeholder="192.168.1.100&#10;192.168.1.101&#10;10.0.0.50"></textarea>
+            </div>
+            <div class="form-group">
+                <label>最大并发数</label>
+                <input type="number" id="inboundMaxConcurrent" value="100" min="1">
+            </div>
+            <div class="form-group">
+                <label>状态</label>
+                <select id="inboundStatus">
+                    <option value="1">启用</option>
+                    <option value="0">禁用</option>
+                    <option value="2">暂停</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>描述</label>
+                <input type="text" id="inboundDesc" placeholder="可选描述">
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">保存</button>
+        </form>
+    </div>
+</div>

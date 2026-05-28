@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpsLB - OpenSIPS 负载均衡管理</title>
+    <!-- 引入现代字体 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- 引入Lucide图标 -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- 登录页面 -->
+    <div id="loginPage" class="login-container">
+        <div class="login-box">
+            <h2>OpsLB 管理系统</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" id="username" required placeholder="请输入用户名">
+                </div>
+                <div class="form-group">
+                    <label>密码</label>
+                    <input type="password" id="password" required placeholder="请输入密码">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">登录</button>
+            </form>
+            <p style="text-align: center; margin-top: 15px; color: #666; font-size: 12px;">默认账号: admin / admin123</p>
+        </div>
+    </div>
+
+    <!-- 主应用 -->
+    <div id="appContainer" class="app-container hidden">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="sidebar-logo" onclick="goToDashboard()" style="cursor: pointer;" title="返回仪表盘">
+                <i data-lucide="rocket" class="logo-icon" style="width: 24px; height: 24px;"></i>
+                <span>OpsLB</span>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-item" data-page="inbound" data-title="入局网关">
+                    <i data-lucide="arrow-down-to-line"></i>
+                    <span>入局网关</span>
+                </div>
+                <div class="menu-item" data-page="outbound" data-title="出局网关">
+                    <i data-lucide="arrow-up-from-line"></i>
+                    <span>出局网关</span>
+                </div>
+                <div class="menu-item" data-page="callrecords" data-title="呼叫记录">
+                    <i data-lucide="phone-call"></i>
+                    <span>呼叫记录</span>
+                </div>
+                <div class="menu-item" data-page="settings" data-title="系统设置">
+                    <i data-lucide="settings"></i>
+                    <span>系统设置</span>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <i data-lucide="user-circle"></i>
+                    <span id="userInfo"></span>
+                </div>
+                <button class="btn-logout" onclick="logout()">
+                    <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+                    退出
+                </button>
+            </div>
+        </div>
+
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 标签页栏 -->
+            <div class="tabs-bar" id="tabsBar">
+                <div class="tab-item active" data-page="dashboard">
+                    <span>仪表盘</span>
+                </div>
+            </div>
+
+            <!-- 内容展示区 -->
+            <div class="content-area" id="contentArea">
+                <!-- 动态加载页面内容 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

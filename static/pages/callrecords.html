@@ -1,0 +1,47 @@
+<div class="card">
+    <h2>呼叫记录</h2>
+    
+    <!-- 筛选栏 -->
+    <div class="filter-bar">
+        <input type="datetime-local" id="startTime" placeholder="开始时间">
+        <input type="datetime-local" id="endTime" placeholder="结束时间">
+        <input type="text" id="callerNumber" placeholder="主叫号码">
+        <input type="text" id="calledNumber" placeholder="被叫号码">
+        <input type="text" id="statusCode" placeholder="状态码/状态描述">
+        <button class="btn btn-primary" onclick="searchCallRecords()">
+            <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+            查询
+        </button>
+        <button class="btn btn-success" onclick="exportCallRecords()">
+            <i data-lucide="download" style="width: 16px; height: 16px;"></i>
+            导出CSV
+        </button>
+        <button class="btn" onclick="resetFilters()">
+            <i data-lucide="rotate-ccw" style="width: 16px; height: 16px;"></i>
+            重置
+        </button>
+    </div>
+    
+    <!-- 筛选结果统计 -->
+    <div class="filter-summary">
+        <span>共 <strong id="totalRecords">0</strong> 条记录</span>
+    </div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>主叫号码</th>
+                <th>被叫号码</th>
+                <th>入局IP</th>
+                <th>出局网关</th>
+                <th>状态</th>
+                <th>通话时长</th>
+            </tr>
+        </thead>
+        <tbody id="callRecordsTable"></tbody>
+    </table>
+    
+    <!-- 分页 -->
+    <div class="pagination" id="pagination"></div>
+</div>
